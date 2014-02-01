@@ -1,0 +1,46 @@
+{
+  "name": "songbird",
+  "version": "0.1.0",
+  "description": "Chain promises easily in node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duereg/songbird.git"
+  },
+  "keywords": [
+    "bluebird",
+    "promise",
+    "async",
+    "then",
+    "prototype",
+    "Object",
+    "Function"
+  ],
+  "author":{
+    "name": "Matt Blair",
+    "email": "matt@mattblair.co",
+    "web": "http://mattblair.co"
+  },
+  "licenses": [
+    "MIT"
+  ],
+  "dependencies": {
+    "bluebird": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "chai": "*",
+    "coffee-script": "*"
+  },
+  "main": "lib/songbird",
+  "bin": {
+    "songbird": "./bin/songbird"
+  },
+  "engine": {
+    "node": ">=0.6"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/coffee -o lib -c src/*.coffee",
+    "pretest": "npm build",
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter spec test/*.spec.coffee"
+  }
+}

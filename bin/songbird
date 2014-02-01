@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+var vm = require('vm');
+var repl = require('repl');
+var songbird = require('..');
+
+if (['-c', '--coffee'].indexOf(process.argv[2]) != -1) {
+  console.log("Starting coffee REPL...");
+  var CoffeeScript = require('coffee-script');
+  repl.start({
+    prompt: "coffee> ",
+    eval: function(code, context, file, cb) {
+      code = CoffeeScript.compile(code, {filename: file, bare: true});
+      cb(null, vm.runInContext(code, context, file));
+    }
+  });
+}
+else {
+  console.log("Starting node REPL...");
+  repl.start({
+    eval: function(code, context, file, cb) {
+      cb(null, vm.runInContext(code, context, file));
+    }
+  });
+}
+
