@@ -1,5 +1,7 @@
 Promise = require("bluebird")
 
+module.exports = Promise
+
 synchronize = (asyncFn) ->
   (args...) ->
     fnThis = @ is asyncFn and global or @
