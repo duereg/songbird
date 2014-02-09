@@ -7,6 +7,8 @@ Mix promises into all the objects in your code base.
 
 Songbird is built upon the bluebird promise library (hence the name).
 
+If you have any questions about what methods the promises expose, go [here](https://raw2.github.com/petkaantonov/bluebird/master/API.md) to view the bluebird API.
+
 *A project by [Matt Blair](http://mattblair.co) at https://github.com/duereg/songbird.*
 
 Install
@@ -48,7 +50,6 @@ Or this, which behaves identically:
     user.set(attributes)
     user.promise.save()
   ).then (user) -> console.log("Updated", user)
- 
 ```
 
 ### Without Songbird
@@ -129,6 +130,34 @@ asynchronous function, you can do:
 func = obj.getter
 func.promise.call(obj, args)
 ```
+
+### Handling Multiple Promises
+
+Requiring the songbird library not only updates the Object and Function prototype, but also returns a Promise library in which you can carry out certain actions that aren't easily handled from the the promise property.
+
+For example: you have a situation where you're dealing with multiple promises, but don't care what order they complete in. 
+
+```js
+Promise = require("songbird");
+
+Promise.all([task1, task2, task3]).spread(function(result1, result2, result3){
+
+});
+```
+
+Normally when using `.then` the code would be like:
+
+```js
+Promise = require("songbird");
+
+Promise.all([task1, task2, task3]).then(function(results){
+    var result1 = results[0];
+    var result2 = results[1];
+    var result3 = results[2];
+});
+```
+
+For more information about the underlying bluebird promise API, the [API docs are here](https://raw2.github.com/petkaantonov/bluebird/master/API.md).
 
 ### Disclaimer
 
