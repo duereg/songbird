@@ -1,4 +1,8 @@
-﻿Songbird
+﻿[![Build Status](https://travis-ci.org/duereg/songbird.png)](https://travis-ci.org/duereg/songbird)
+[![Dependencies](https://david-dm.org/duereg/songbird.png)](https://david-dm.org/duereg/songbird)
+[![devDependencies](https://david-dm.org/duereg/songbird/dev-status.png)](https://david-dm.org/duereg/songbird#info=devDependencies&view=table)
+
+Songbird
 =======
 
 Easily mix asynchronous and synchronous programming styles in node.js. 
