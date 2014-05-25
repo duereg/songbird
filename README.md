@@ -1,6 +1,7 @@
 ﻿[![Build Status](https://travis-ci.org/duereg/songbird.png)](https://travis-ci.org/duereg/songbird)
 [![Dependencies](https://david-dm.org/duereg/songbird.png)](https://david-dm.org/duereg/songbird)
 [![devDependencies](https://david-dm.org/duereg/songbird/dev-status.png)](https://david-dm.org/duereg/songbird#info=devDependencies&view=table)
+[![NPM version](https://badge.fury.io/js/songbird.svg)](http://badge.fury.io/js/songbird)
 
 Songbird
 =======
