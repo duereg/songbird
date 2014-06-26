@@ -42,6 +42,8 @@ proxyBuilder = (that) ->
   result
 
 definePromiseProperty = (target, factory) ->
+  return if target.hasOwnProperty "promise"
+
   cacheKey = "__songbird__"
   Object.defineProperty target, "promise",
     enumerable: false
