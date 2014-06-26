@@ -1,14 +1,14 @@
-﻿[![Build Status](https://travis-ci.org/duereg/songbird.png)](https://travis-ci.org/duereg/songbird)
-[![Dependencies](https://david-dm.org/duereg/songbird.png)](https://david-dm.org/duereg/songbird)
-[![devDependencies](https://david-dm.org/duereg/songbird/dev-status.png)](https://david-dm.org/duereg/songbird#info=devDependencies&view=table)
+﻿[![Build Status](https://travis-ci.org/duereg/songbird.svg)](https://travis-ci.org/duereg/songbird)
+[![Dependencies](https://david-dm.org/duereg/songbird.svg)](https://david-dm.org/duereg/songbird)
+[![devDependencies](https://david-dm.org/duereg/songbird/dev-status.svg)](https://david-dm.org/duereg/songbird#info=devDependencies&view=table)
 [![NPM version](https://badge.fury.io/js/songbird.svg)](http://badge.fury.io/js/songbird)
 
 Songbird
 =======
 
-Easily mix asynchronous and synchronous programming styles in node.js. 
+Easily mix asynchronous and synchronous programming styles in node.js.
 
-Mix promises into all the objects in your code base. 
+Mix promises into all the objects in your code base.
 
 Songbird is built upon the bluebird promise library (hence the name).
 
@@ -35,7 +35,7 @@ Would you rather write this:
 var updateUser = function(id, attributes, callback) {
   User.findOne(id, function (err, user) {
     if (err) return callback(err);
-    
+
     user.set(attributes);
     user.save(function(err, updated) {
       if (err) return callback(err);
@@ -50,8 +50,8 @@ var updateUser = function(id, attributes, callback) {
 Or this, which behaves identically:
 
 ```coffeescript
- 
-  User.promise.findOne(id).then( (user) → 
+
+  User.promise.findOne(id).then( (user) →
     user.set(attributes)
     user.promise.save()
   ).then (user) -> console.log("Updated", user)
@@ -59,7 +59,7 @@ Or this, which behaves identically:
 
 ### Without Songbird
 
-Using standard node callback-style APIs without Songbird, we write 
+Using standard node callback-style APIs without Songbird, we write
 (from [the fs docs](http://nodejs.org/docs/v0.6.14/api/fs.html#fs_fs_readfile_filename_encoding_callback)):
 
 ```javascript
@@ -140,7 +140,7 @@ func.promise.call(obj, args)
 
 Requiring the songbird library not only updates the Object and Function prototype, but also returns a Promise library in which you can carry out certain actions that aren't easily handled from the the promise property.
 
-For example: you have a situation where you're dealing with multiple promises, but don't care what order they complete in. 
+For example: you have a situation where you're dealing with multiple promises, but don't care what order they complete in.
 
 ```js
 Promise = require("songbird");
@@ -168,7 +168,7 @@ For more information about the underlying bluebird promise API, the [API docs ar
 
 Some people don't like libraries that mix in to Object.prototype
 and Function.prototype. If that's how you feel, then Songbird is probably
-not for you. 
+not for you.
 
 Contributing
 ------------
