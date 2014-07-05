@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: matt@mattblair.co
+  api_key:
+    secure: TqpU9m+tPmYqMhn7p2JHYWLcdcXbEIzjfxLgvBeQ5RrLEhJUQe+8gq5vN4+RItfeavFenoygjjKb6GVWFeKB8RozcwmuE5yPPggzYYgQp4qox6/4X/p5+GXt0h4Hhb+GMjf0gQ5R/6OGSh0lWL4CdluwMGTjZcBuc25seLmn8Vk=
+  on:
+    tags: true
+    repo: duereg/songbird
