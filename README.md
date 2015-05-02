@@ -164,7 +164,9 @@ Promise.all([task1, task2, task3]).then(function(results){
 
 For more information about the underlying bluebird promise API, the [API docs are here](https://raw2.github.com/petkaantonov/bluebird/master/API.md).
 
-### Disclaimer
+### Disclaimers
+
+The function should conform to node.js convention of accepting a callback as the last argument and calling that callback with error as the first argument and success value on the second argument.
 
 Some people don't like libraries that mix in to Object.prototype
 and Function.prototype. If that's how you feel, then Songbird is probably
@@ -195,7 +197,7 @@ License
 
 (The MIT License)
 
-Copyright (c) 2014 Matt Blair
+Copyright (c) 2015 Matt Blair
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
