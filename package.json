@@ -1,6 +1,6 @@
 {
   "name": "songbird",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Chain promises easily in node.js",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "Object",
     "Function"
   ],
-  "author":{
+  "author": {
     "name": "Matt Blair",
     "email": "matt@mattblair.co",
     "web": "http://mattblair.co"
