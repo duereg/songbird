@@ -36,7 +36,7 @@
     "songbird": "./bin/songbird"
   },
   "engine": {
-    "node": ">=0.6"
+    "node": ">=4"
   },
   "scripts": {
     "build": "./node_modules/.bin/coffee -o lib -c src/*.coffee",
