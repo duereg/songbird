@@ -194,10 +194,10 @@ describe 'Songbird', ->
 
       it 'are supported', (done) ->
         f.promise().then (value) ->
-          expect(value).to.equal '[object global].f()'
+          expect(value).to.contain '.f()'
           done()
 
-      it 'are supposed using call() or apply()', (done) ->
+      it 'are supported using call() or apply()', (done) ->
         f.promise.call(10).then (value) ->
           expect(value).to.equal '10.f()'
           done()
