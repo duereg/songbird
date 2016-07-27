@@ -24,12 +24,12 @@
     "MIT"
   ],
   "dependencies": {
-    "bluebird": "*"
+    "bluebird": "^3.4.1"
   },
   "devDependencies": {
-    "mocha": "*",
-    "chai": "*",
-    "coffee-script": "*"
+    "chai": "^3.5.0",
+    "coffee-script": "*",
+    "mocha": "^2.5.3"
   },
   "main": "lib/songbird",
   "bin": {
