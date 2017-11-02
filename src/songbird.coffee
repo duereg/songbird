@@ -1,6 +1,18 @@
-Promise = require("bluebird")
+Promise = global.Promise || require("bluebird")
 
 module.exports = Promise
+
+if (!Promise.promisify)
+  Promise.promisify = (asyncFn, context) ->
+    (args...) ->
+      args = Array.prototype.slice.apply(args)
+      new Promise (resolve, reject) ->
+        args.push (err, rets...) ->
+          if err
+            reject(err)
+          else
+            resolve.apply(context, rets)
+        asyncFn.apply(context, args)
 
 synchronize = (asyncFn) ->
   (args...) ->
