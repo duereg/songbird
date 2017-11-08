@@ -24,8 +24,8 @@
     "MIT"
   ],
   "devDependencies": {
-    "chai": "^3.5.0",
-    "coffee-script": "*",
+    "chai": "^4.1.2",
+    "coffee-script": "^1.12.7",
     "mocha": "^2.5.3"
   },
   "optionalDependencies": {
