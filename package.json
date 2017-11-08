@@ -23,13 +23,13 @@
   "licenses": [
     "MIT"
   ],
-  "dependencies": {
-    "bluebird": "^3.4.1"
-  },
   "devDependencies": {
     "chai": "^3.5.0",
     "coffee-script": "*",
     "mocha": "^2.5.3"
+  },
+  "optionalDependencies": {
+    "bluebird": "^3.4.1"
   },
   "main": "lib/songbird",
   "bin": {
