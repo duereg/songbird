@@ -1,6 +1,6 @@
 {
   "name": "songbird",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Chain promises easily in node.js",
   "repository": {
     "type": "git",
