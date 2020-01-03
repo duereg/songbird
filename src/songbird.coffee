@@ -49,7 +49,13 @@ proxyBuilder = (that) ->
   proxyAll that, result, (key) ->
     (args...) ->
       # Lookup the method every time to pick up reassignments of key on obj or an instance
-      @that[key].promise.apply(@that, args)
+      func = @that[key]
+      # HACK: async function will return promise
+      # we don't need reproxy
+      if func.constructor.name is 'AsyncFunction'
+        @that[key].apply(@that, args)
+      else
+        @that[key].promise.apply(@that, args)
 
   result
 
