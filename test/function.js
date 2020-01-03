@@ -1,7 +1,7 @@
 const sleep = (ms) => {
-    return new Promise((res, rej) => {
-        setTimeout(res, ms);
-    });
+  return new Promise((res, rej) => {
+    setTimeout(res, ms);
+  });
 }
 
 module.exports = {
