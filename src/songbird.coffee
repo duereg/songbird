@@ -25,9 +25,9 @@ getMethods = (src) ->
   keys = []
 
   while obj
+    # Break master classes
+    break if obj in [Object::, Function::]
     keys = keys.concat Object.getOwnPropertyNames(obj).filter (key) ->
-      # Ignore master classes
-      return if obj in [Object::, Function::]
       # Ignore any rewrites of toString, etc which can cause problems
       return if Object::[key]?
       # getter methods can have unintentional side effects when called in the wrong context
