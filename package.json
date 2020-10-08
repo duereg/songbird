@@ -40,7 +40,7 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/coffee -o lib -c src/*.coffee",
-    "pretest": "npm build",
-    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter spec test/*.spec.coffee"
+    "pretest": "npm run build",
+    "test": "./node_modules/.bin/mocha --compilers coffee:coffee-script/register --reporter spec test/*.spec.*"
   }
 }

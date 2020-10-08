@@ -20,17 +20,29 @@ synchronize = (asyncFn) ->
 
     Promise.promisify(asyncFn, fnThis).apply(fnThis, args)
 
-proxyAll = (src, target, proxyFn) ->
-  # Gives back the keys on this object, not on prototypes
-  for key in Object.keys(src)
-    do (key) ->
+getMethods = (src) ->
+  obj = src
+  keys = []
+
+  while obj
+    # Break master classes
+    break if obj in [Object::, Function::]
+    keys = keys.concat Object.getOwnPropertyNames(obj).filter (key) ->
       # Ignore any rewrites of toString, etc which can cause problems
       return if Object::[key]?
       # getter methods can have unintentional side effects when called in the wrong context
-      return if Object.getOwnPropertyDescriptor(src, key).get?
+      return if Object.getOwnPropertyDescriptor(obj, key).get?
       # getter methods may throw an exception in some contexts
-      return unless typeof src[key] is 'function'
+      return typeof obj[key] is 'function'
+    obj = Object.getPrototypeOf(obj)
 
+  # TODO: return unique items
+  keys
+
+proxyAll = (src, target, proxyFn) ->
+  # Gives back the keys on this object, not on prototypes
+  for key in getMethods(src)
+    do (key) ->
       target[key] = proxyFn(key)
 
   target
@@ -49,7 +61,13 @@ proxyBuilder = (that) ->
   proxyAll that, result, (key) ->
     (args...) ->
       # Lookup the method every time to pick up reassignments of key on obj or an instance
-      @that[key].promise.apply(@that, args)
+      func = @that[key]
+      # HACK: async function will return promise
+      # we don't need reproxy
+      if func.constructor.name is 'AsyncFunction'
+        @that[key].apply(@that, args)
+      else
+        @that[key].promise.apply(@that, args)
 
   result
 
